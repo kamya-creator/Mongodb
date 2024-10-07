@@ -1,0 +1,18 @@
+package com.microservice.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Category {
+	
+	private Integer id;
+	private String name;
+	private String brand;
+
+}
