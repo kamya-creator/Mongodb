@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@NoArgsConstructor
 @Setter
 public class Category {
 	
 	private Integer id;
 	private String name;
-	private String brand;
-
+	private String brand;	
 }

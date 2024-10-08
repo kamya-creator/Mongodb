@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.dto.Product;
 import com.microservice.service.ProductService;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -31,10 +32,11 @@ public class ProductController {
 	
 	
 	@PostMapping("/addProduct")
-	ResponseEntity<Product> addProduct(@RequestBody Product product)
+	ResponseEntity<Product> addProduct(@RequestBody @Valid Product product)
 	{
+		System.out.println("Product name" + product);
 		Product savedProduct = productService.addProduct(product);
-		log.info("Product Added");
+		//log.info("Product Added");
 		return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
 	}
 	
@@ -45,7 +47,7 @@ public class ProductController {
 		return productService.getAllProductList();
 	}
 	@GetMapping("/productList/{category}")
-	List<Product> getProductCategoryList(@PathVariable String category)
+	List<Product> getProductCategoryList(@PathVariable @Valid String category)
 	{
 		return productService.getProductCategory(category);
 	}
@@ -58,7 +60,7 @@ public class ProductController {
 	ResponseEntity<Product> updateProduct(@RequestBody Product product)
 	{
 		Product savedProduct = productService.updateProduct(product);
-		log.info("Product Updated");
+		//log.info("Product Updated");
 		return ResponseEntity.status(HttpStatus.OK).body(savedProduct);
 	}
 	
