@@ -34,6 +34,7 @@ public class ProductController {
 	
 	@PostMapping("/addProduct")
 	ResponseEntity<Product> addProduct(@RequestBody @Valid Product product) throws OfferNotValidException
+
 	{
 		System.out.println("Product name" + product);
 		Product savedProduct = productService.addProduct(product);
@@ -58,7 +59,7 @@ public class ProductController {
 		return productService.getProductById(id);
 	}
 	@PutMapping("/updateProduct")
-	ResponseEntity<Product> updateProduct(@RequestBody Product product)
+	ResponseEntity<Product> updateProduct(@RequestBody @Valid Product product)
 	{
 		Product savedProduct = productService.updateProduct(product);
 		//log.info("Product Updated");
