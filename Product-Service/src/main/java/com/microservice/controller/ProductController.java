@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.dto.Product;
+import com.microservice.exception.OfferNotValidException;
 import com.microservice.service.ProductService;
 
 import jakarta.validation.Valid;
@@ -32,7 +33,7 @@ public class ProductController {
 	
 	
 	@PostMapping("/addProduct")
-	ResponseEntity<Product> addProduct(@RequestBody @Valid Product product)
+	ResponseEntity<Product> addProduct(@RequestBody @Valid Product product) throws OfferNotValidException
 	{
 		System.out.println("Product name" + product);
 		Product savedProduct = productService.addProduct(product);

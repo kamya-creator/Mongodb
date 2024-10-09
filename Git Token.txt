@@ -1,1 +1,7 @@
 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
+
+
+mvn clean
+mvn build
+mvn install
+mvn package
