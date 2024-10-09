@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.dto.Product;
 import com.microservice.service.ProductService;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -31,7 +32,7 @@ public class ProductController {
 	
 	
 	@PostMapping("/addProduct")
-	ResponseEntity<Product> addProduct(@RequestBody Product product)
+	ResponseEntity<Product> addProduct(@RequestBody @Valid Product product)
 	{
 		Product savedProduct = productService.addProduct(product);
 		log.info("Product Added");
@@ -55,7 +56,7 @@ public class ProductController {
 		return productService.getProductById(id);
 	}
 	@PutMapping("/updateProduct")
-	ResponseEntity<Product> updateProduct(@RequestBody Product product)
+	ResponseEntity<Product> updateProduct(@RequestBody @Valid Product product)
 	{
 		Product savedProduct = productService.updateProduct(product);
 		log.info("Product Updated");
