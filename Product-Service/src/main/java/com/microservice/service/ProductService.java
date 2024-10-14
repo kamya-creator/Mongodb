@@ -46,12 +46,12 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-	public Product getProductById(Integer id) {
+	public Product getProductById(String id) {
 		
 		return productRepository.findById(id).get();
 	}
 	
-	public String deleteProduct(Integer id)
+	public String deleteProduct(String id)
 	{
 		productRepository.deleteById(id);
 		return "Product deleted Successfully";

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import com.microservice.dto.Product;
 
-public interface ProductRepository extends MongoRepository<Product, Integer> {
+public interface ProductRepository extends MongoRepository<Product, String> {
 	
 	
 	@Query("{'Category.name':?0}")

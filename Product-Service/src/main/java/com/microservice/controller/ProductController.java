@@ -54,7 +54,7 @@ public class ProductController {
 		return productService.getProductCategory(category);
 	}
 	@GetMapping("/product/{id}")
-	Product getProductCategoryList(@PathVariable Integer id)
+	Product getProductById(@PathVariable String id)
 	{
 		return productService.getProductById(id);
 	}
@@ -67,7 +67,7 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/deleteProduct/{id}")
-	String deleteProduct(@PathVariable Integer id)
+	String deleteProduct(@PathVariable String id)
 	{	
 		return productService.deleteProduct(id);
 	}
